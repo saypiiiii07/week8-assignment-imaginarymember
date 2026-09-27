@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>メンバー紹介</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen py-10">
+
+  <h1 class="text-2xl font-bold text-center text-gray-800 mb-8">メンバー紹介</h1>
+
+  <!-- カードを挿入するコンテナ -->
+  <div id="member-container" class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
+  </div>
+
+  <script>
+    // メンバーデータ（追加した順に並べています。理由はPR本文を参照）
+    const members = [
+      { name: "田中 太郎",   role: "リーダー",       comment: "チーム全体の進行管理を担当しています。" },
+      { name: "佐藤 花子",   role: "デザイナー",     comment: "見た目だけでなく使いやすさも大事にしています。" },
+      { name: "鈴木 次郎",   role: "エンジニア",     comment: "バックエンドの実装が得意です。" },
+      { name: "高橋 美咲",   role: "エンジニア",     comment: "フロントエンドを中心に開発しています。" },
+      { name: "伊藤 健",     role: "QA担当",         comment: "バグを見つけるのが得意です、よろしくお願いします。" },
+    ];
+
+    const container = document.getElementById("member-container");
+
+    members.forEach((member) => {
+      // カード要素を作成
+      const card = document.createElement("div");
+      card.className = "bg-white rounded shadow p-5 hover:shadow-lg transition-shadow";
+
+      card.innerHTML = `
+        <h2 class="text-lg font-semibold text-gray-800">${member.name}</h2>
+        <p class="text-sm text-indigo-600 font-medium mb-2">${member.role}</p>
+        <p class="text-gray-600 text-sm">${member.comment}</p>
+      `;
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
